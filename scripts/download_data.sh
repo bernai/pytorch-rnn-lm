@@ -24,8 +24,8 @@ mkdir -p $data/tales
 
 mkdir -p $data/tales/raw
 
-wget http://www.gutenberg.org/cache/epub/27200/pg27200.txt
-mv pg27200.txt $data/tales/raw
+wget https://raw.githubusercontent.com/bernai/pytorch-rnn-lm/master/27200.txt
+mv 27200.txt $data/tales/raw
 
 # preprocess slightly
 
