@@ -20,24 +20,24 @@ done
 
 # download a different interesting data set!
 
-mkdir -p $data/trump
+mkdir -p $data/tales
 
-mkdir -p $data/trump/raw
+mkdir -p $data/tales/raw
 
-wget https://raw.githubusercontent.com/ryanmcdermott/trump-speeches/master/speeches.txt
-mv speeches.txt $data/trump/raw
+wget http://www.gutenberg.org/cache/epub/27200/pg27200.txt
+mv pg27200.txt $data/tales/raw
 
 # preprocess slightly
 
-cat $data/trump/raw/speeches.txt | python $base/scripts/preprocess_raw.py > $data/trump/raw/speeches.cleaned.txt
+cat $data/tales/raw/pg27200.txt | python $base/scripts/preprocess_raw.py > $data/tales/raw/tales_hca.cleaned.txt
 
 # tokenize, fix vocabulary upper bound
 
-cat $data/trump/raw/speeches.cleaned.txt | python $base/scripts/preprocess.py --vocab-size 5000 --tokenize --lang "en" > \
-    $data/trump/raw/speeches.preprocessed.txt
+cat $data/tales/raw/tales_hca.cleaned.txt | python $base/scripts/preprocess.py --vocab-size 5000 --tokenize --lang "en" > \
+    $data/tales/raw/tales_hca.preprocessed.txt
 
 # split into train, valid and test
 
-head -n 500 $data/trump/raw/speeches.preprocessed.txt > $data/trump/valid.txt
-head -n 1000 $data/trump/raw/speeches.preprocessed.txt | tail -n 500 > $data/trump/test.txt
-tail -n 3260 $data/trump/raw/speeches.preprocessed.txt > $data/trump/train.txt
+head -n 500 $data/tales/raw/tales_hca.preprocessed.txt > $data/tales/valid.txt
+head -n 1000 $data/tales/raw/tales_hca.preprocessed.txt | tail -n 500 > $data/tales/test.txt
+tail -n 3260 $data/tales/raw/tales_hca.preprocessed.txt > $data/tales/train.txt
