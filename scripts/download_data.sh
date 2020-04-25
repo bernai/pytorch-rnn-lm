@@ -29,7 +29,7 @@ mv 27200.txt $data/tales/raw
 
 # preprocess slightly
 
-cat $data/tales/raw/pg27200.txt | python $base/scripts/preprocess_raw.py > $data/tales/raw/tales_hca.cleaned.txt
+cat $data/tales/raw/27200.txt | python $base/scripts/preprocess_raw.py > $data/tales/raw/tales_hca.cleaned.txt
 
 # tokenize, fix vocabulary upper bound
 
