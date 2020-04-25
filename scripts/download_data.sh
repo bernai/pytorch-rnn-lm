@@ -24,7 +24,6 @@ mkdir -p $data/tales
 
 mkdir -p $data/tales/raw
 
-wget https://raw.githubusercontent.com/bernai/pytorch-rnn-lm/master/27200.txt
 mv 27200.txt $data/tales/raw
 
 # preprocess slightly
@@ -38,6 +37,6 @@ cat $data/tales/raw/tales_hca.cleaned.txt | python $base/scripts/preprocess.py -
 
 # split into train, valid and test
 
-head -n 500 $data/tales/raw/tales_hca.preprocessed.txt > $data/tales/valid.txt
-head -n 1000 $data/tales/raw/tales_hca.preprocessed.txt | tail -n 500 > $data/tales/test.txt
-tail -n 3260 $data/tales/raw/tales_hca.preprocessed.txt > $data/tales/train.txt
+head -n 2000 $data/tales/raw/tales_hca.preprocessed.txt > $data/tales/valid.txt
+head -n 4000 $data/tales/raw/tales_hca.preprocessed.txt | tail -n 2000 > $data/tales/test.txt
+tail -n 13040 $data/tales/raw/tales_hca.preprocessed.txt > $data/tales/train.txt
