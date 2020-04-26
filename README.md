@@ -41,7 +41,7 @@ Generate (sample) some text from a trained model with:
 
     ./scripts/generate.sh
 
-# Changes
+#Changes
 download_data.sh: 
 * changed paths
 * changed size of train, test, valid
@@ -59,7 +59,7 @@ train.sh:
 * added; data for preprocessing
 
 
-# Training Results
+#Training Results
 
 I decided to change dropout and got the best result for 0.4. A value between 0.35 and 0.5 would be ideal for my data set according to the table below.
 Still, the perplexity seems very high in general, even for the lowest value:
