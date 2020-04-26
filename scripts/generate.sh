@@ -16,7 +16,9 @@ device=""
 (cd $tools/pytorch-examples/word_language_model &&
     CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python generate.py \
         --data $data/tales \
-        --words 100 \
+        --words 200 \
         --checkpoint $models/model.pt \
-        --outf $samples/sample
+        --outf $samples/sample.txt \
+        --temperature 2.5
+
 )
